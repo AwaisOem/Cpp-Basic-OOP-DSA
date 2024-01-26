@@ -1,0 +1,112 @@
+Awais Raza
+CS 3rd Regular
+Roll no# R009
+
+
+/// Program of Sort a Stack Using Recurrsion
+
+#include<bits/stdc++.h>
+using namespace std;
+void sortStack(stack<int> &s){
+    if(s.empty())return;
+    int temp = s.top();
+    s.pop();
+    sortStack(s);
+    stack<int> t;
+    while(!s.empty() && temp<s.top()){
+        t.push(s.top());
+        s.pop();
+    }
+    s.push(temp);
+    while(!t.empty()){
+        s.push(t.top());
+        t.pop();
+    }
+}
+int main(){
+    stack<int> s;
+    s.push(4);
+    s.push(8);
+    s.push(12);
+    s.push(7);
+    s.push(0);
+    sortStack(s);
+    while(!s.empty()){
+        cout<<s.top()<<" ";
+        s.pop();
+    }  
+}
+
+
+
+
+/// Function of Reverse LinkList Using Recurrsion
+
+    Node* Rev(Node*n,Node*c){
+        if(n->next==NULL){
+            head = n;
+            return n;
+        }
+        Node* t = Rev(n->next,c);
+        t->next = n;
+        if(c==n)
+            return n->next=NULL;
+        return n;
+    }
+    void reverse(){
+        Rev(head,head);
+    }
+
+
+/// Split Linklist in two parts
+
+#include<bits/stdc++.h>
+using namespace std;
+
+class LinkList{
+    class Node{
+        public: int data;Node*next;
+        Node(int d):data(d),next(NULL){}
+    }*head , * tail;
+    public:
+    LinkList():head(NULL),tail(NULL){}
+    void add(int d){
+        Node*temp = new Node(d);
+        if(head == NULL){
+            head = tail = temp;
+        }else{
+            tail->next = temp;
+            tail = temp;
+        }
+    }
+    void print(){
+        for(Node*temp = head;temp!=NULL;temp = temp->next)
+            cout<<temp->data<<" ";
+        cout<<endl;
+    }
+    void splitEvenOddNodes(LinkList &l1,LinkList &l2){
+        for(Node*temp = head;temp!=NULL;temp = temp->next->next){
+            l1.add(temp->data);
+            if(temp->next==NULL)break;
+        }
+        for(Node*temp = head->next;temp!=NULL;temp = temp->next->next){
+            l2.add(temp->data);
+            if(temp->next==NULL)break;
+
+        }
+    }
+};
+int main()
+{
+    LinkList l;
+    l.add(1);
+    l.add(2);
+    l.add(3);
+    l.add(4);
+    l.print();
+    LinkList odd,even;
+    l.splitEvenOddNodes(odd,even);
+    odd.print();
+    even.print();
+    return 0;   
+}

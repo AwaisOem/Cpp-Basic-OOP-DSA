@@ -1,0 +1,2 @@
+#include<iostream>
+using namespace std;int main(){int pw,sl;cout<<"Enter numeber passengers waiting:    ";cin>>pw; if(pw>50){sl=pw-50;}else{sl=50-pw;}while(pw>50){pw=pw-50;};sl=50-pw;cout<<endl; cout<<"Seats left:    "<<sl;  return 0;}

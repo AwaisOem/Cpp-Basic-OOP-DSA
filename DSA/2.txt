@@ -1,0 +1,40 @@
+Saudia Region
+
+    LACP ethercahnnels
+    interVlan routing
+    dhcp
+    port security
+    osfp
+    rapid stp
+    load balancing
+    firewall
+    Egirp
+    route distribution
+
+Pakistan Region
+
+spanning-tree port default
+spanning-tree port bp default
+do wr
+
+
+encapsulation dot1Q 30
+ ip address 192.168.4.131 255.255.255.192
+ standby version 2
+ standby 1 ip 192.168.4.129
+ standby 1 preempt
+standby 1 priority 200
+exit
+
+ip dhcp pool TS
+dns 8.8.8.8
+default-router 192.168.4.129
+net 192.168.4.128 255.255.255.192
+exit
+
+ip dhcp excluded-address 192.168.4.129 192.168.4.140
+
+do wr
+
+
+

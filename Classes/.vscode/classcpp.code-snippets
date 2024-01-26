@@ -1,0 +1,17 @@
+{
+	"": {
+		"prefix": "cppclass",
+		"body": [
+		  "#include<bits/stdc++.h>",
+		  "using namespace std;",
+		  "${1://code_out_side_main}",
+		  "int main(){",
+		  "",
+		  "//code here",
+		  "",
+		  " return 0;   ",
+		  "}"
+		],
+		"description": ""
+	  }
+	}
